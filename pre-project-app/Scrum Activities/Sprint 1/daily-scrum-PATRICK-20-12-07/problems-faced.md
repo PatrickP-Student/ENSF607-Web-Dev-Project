@@ -1,0 +1,2 @@
+Patrick - Javascript is a strange language and I am having trouble understanding the notations used by it.
+        - React uses both Javascript, and HTML (as well as CSS) together, and I am extremely new to all of these languages. Progress made is very slow.
