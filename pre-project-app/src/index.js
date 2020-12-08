@@ -21,12 +21,19 @@ class App extends Component {
   };
 
   countDown = () => {
-    this.setState({
-      count: this.state.count - 1
-    });
+    if (this.state.count > 0) {
+      this.setState({
+        count: this.state.count - 1
+      });
+    }
   };
 
   onChange = (e) => {
+    if (isNaN(e.target.value)) return;
+    if (e.target.value == '') {
+      this.setState({ [e.target.name]: 0 });
+      return;
+    }
     this.setState({ [e.target.name]: parseInt(e.target.value) });
   };
 
@@ -46,7 +53,7 @@ class App extends Component {
           <div className="Counter">
             <h1>
               <div class="dividerHuge" />
-              <strong>{ count }</strong>
+              <strong>{count}</strong>
             </h1>
           </div>
           <div className="TextInputField">
