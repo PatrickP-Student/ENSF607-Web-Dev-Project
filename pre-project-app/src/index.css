@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:#F0FFFF;
 }
 
 code {
@@ -13,14 +12,20 @@ code {
     monospace;
 }
 
-div.relative {
-  position: relative;
-  left: 30px;
-  /* border: 3px solid #73AD21; */
+.dividerHuge{
+  width:150px;
+  height:auto;
+  display:inline-block;
 }
 
-.divider{
-  width:10px;
+.dividerBig{
+  width:50px;
+  height:auto;
+  display:inline-block;
+}
+
+.dividerSmall{
+  width:5px;
   height:auto;
   display:inline-block;
 }

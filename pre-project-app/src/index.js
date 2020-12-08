@@ -2,12 +2,13 @@ import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Button from './components/Button';
+import "bulma/css/bulma.css"
 
-export default class App extends Component {
+class App extends Component {
 
   constructor() {
     super();
-    this.state = { 
+    this.state = {
       count: 0,
       fieldInput: '',
     };
@@ -32,72 +33,79 @@ export default class App extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.setState({
-      count: parseInt(this.state.fieldInput)
+      count: this.state.fieldInput
     });
-    this.setState({ fieldInput: ''});
+    this.setState({ fieldInput: '' });
   };
 
   render() {
     let { count } = this.state;
     return (
-      <div className = "App">
-        <div className = "Counter">
-          <h2>{ count }</h2>
-        </div>
-        <div className = "TextInputField">
-          <form onSubmit={this.onSubmit}>
-            <input 
-              type="text" 
-              name="fieldInput"
-              style={inputBox}
-              width="200%"
-              placeholder="Set counter..."
-              value={this.state.fieldInput}
-              onChange={this.onChange}
+      <div className="App">
+        <div className="container">
+          <div className="Counter">
+            <h1>
+              <div class="dividerHuge" />
+              <strong>{ count }</strong>
+            </h1>
+          </div>
+          <div className="TextInputField">
+            <form onSubmit={this.onSubmit}>
+              <div class="dividerBig" />
+              <input
+                type="text"
+                name="fieldInput"
+                style={inputBox}
+                width="200%"
+                placeholder="Set counter..."
+                value={this.state.fieldInput}
+                onChange={this.onChange}
+              />
+              <input
+                type="submit"
+                font-size="125%"
+                value="Submit"
+                className="btn"
+                style={submitbutton}
+              />
+            </form>
+          </div>
+          <div className="Buttons">
+            <div class="dividerBig" />
+            <Button
+              title="Up"
+              task={() => this.countUp()}
             />
-            <input
-              type="submit"
-              font-size="125%"
-              value="Submit"
-              className="btn"
-              style={submitbutton}   
+            <div class="dividerSmall" />
+            <Button
+              title="Down"
+              task={() => this.countDown()}
             />
-          </form>
-        </div>
-        <div className = "Buttons">
-          <Button
-          title="Up" 
-          task= { () => this.countUp() }
-          />
-          <div class="divider" />
-          <Button 
-          title="Down" 
-          task= { () => this.countDown() }
-          />
+          </div>
         </div>
       </div>
-    ); 
+    );
   }
-}
+} export default App;
 
 const inputBox = {
   background: 'AliceBlue',
-  width: '20%',
+  width: '15%',
   padding: '5px',
   margin: '8px 0',
 }
 
 const submitbutton = {
   background: 'MediumAquaMarine',
-    color: 'Black',
-    border: 'none',
-    bordercolor: 'DarkGray',
-    padding: '7px 12px',
-    borderRadius: '2px',
-    cursor: 'pointer',
+  color: 'Black',
+  border: 'none',
+  bordercolor: 'DarkGray',
+  padding: '7px 12px',
+  borderRadius: '2px',
+  cursor: 'pointer',
 }
 
 ReactDOM.render(
-  <App/>,
+  <App />,
   document.getElementById('root')
 );
