@@ -4,6 +4,16 @@ export default class Button extends Component {
     render(){
       let { title, task } = this.props
       return(
-        <button onClick = { task }>{ title }</button>
+        <button style={ btnStyle } onClick = { task }>{ title }</button>
       )}
+  }
+
+  const btnStyle = {
+    background: 'coral',
+    color: 'Black',
+    border: 'none',
+    bordercolor: 'DarkGray',
+    padding: '10px 12px',
+    borderRadius: '8px',
+    cursor: 'pointer',
   }

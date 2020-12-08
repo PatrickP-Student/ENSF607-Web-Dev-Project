@@ -15,18 +15,18 @@ export default class App extends Component {
 
   countUp = () => {
     this.setState({
-      count: parseInt(this.state.count) + 1
+      count: this.state.count + 1
     });
   };
 
   countDown = () => {
     this.setState({
-      count: parseInt(this.state.count) - 1
+      count: this.state.count - 1
     });
   };
 
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: parseInt(e.target.value) });
   };
 
   onSubmit = (e) => {
@@ -49,32 +49,52 @@ export default class App extends Component {
             <input 
               type="text" 
               name="fieldInput"
-              style={{ flex: '10', padding: '5px' }} 
+              style={inputBox}
+              width="200%"
               placeholder="Set counter..."
               value={this.state.fieldInput}
               onChange={this.onChange}
             />
             <input
               type="submit"
+              font-size="125%"
               value="Submit"
               className="btn"
-              style={{ flex: '1' }}    
+              style={submitbutton}   
             />
           </form>
         </div>
         <div className = "Buttons">
-          <Button 
+          <Button
           title="Up" 
           task= { () => this.countUp() }
           />
+          <div class="divider" />
           <Button 
           title="Down" 
           task= { () => this.countDown() }
           />
         </div>
       </div>
-    );
+    ); 
   }
+}
+
+const inputBox = {
+  background: 'AliceBlue',
+  width: '20%',
+  padding: '5px',
+  margin: '8px 0',
+}
+
+const submitbutton = {
+  background: 'MediumAquaMarine',
+    color: 'Black',
+    border: 'none',
+    bordercolor: 'DarkGray',
+    padding: '7px 12px',
+    borderRadius: '2px',
+    cursor: 'pointer',
 }
 
 ReactDOM.render(
