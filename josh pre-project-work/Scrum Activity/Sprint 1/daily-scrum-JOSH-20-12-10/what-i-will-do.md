@@ -1,0 +1,1 @@
+Josh - add epics and stories to our project, as well as doing more work on REACT 
