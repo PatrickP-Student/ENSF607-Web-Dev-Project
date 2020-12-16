@@ -2,7 +2,7 @@ import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Button from './components/Button';
-import "bulma/css/bulma.css"
+// import "bulma/css/bulma.css"
 
 class App extends Component {
 
