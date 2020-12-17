@@ -1,6 +1,5 @@
 import './App.css';
 import "bulma/css/bulma.css";
-import FinalGradesDetermination from './components/FinalGradesDetermination';
 import SectionHeaders from './components/SectionHeaders';
 import PageHeader from './components/PageHeader';
 import StaticInputFields from './components/StaticInputFields';
@@ -8,9 +7,8 @@ import Buttons from './components/Buttons';
 import { Component} from 'react';
 import ChangeLearningOutcome from './components/ChangeLearningOutcome';
 import DisplayLO from './components/DisplayLO';
-
-//TODO: Create functions that will add <li></li> components to the areas when the button is pressed.
-//TODO: Create functions that will remove <li></li> objects from the areas when the delete buttons are pressed
+import DisplayGD from './components/DisplayGD';
+import ChangeGradeDetermination from './components/ChangeGradeDetermination';
 
 class App extends Component {
 
@@ -37,6 +35,19 @@ class App extends Component {
     this.setState({
       learningOuts: this.state.learningOuts.splice(0, this.state.learningOuts.length - 1)
     });
+  }
+
+  addNewGD = () => {
+    const newGD = 0
+    this.setState({
+      gradeComps: [...this.state.gradeComps, newGD]
+    });
+  }
+
+  removeGD = () => {
+    this.setState({
+      gradeComps: this.state.gradeComps.splice(0, this.state.gradeComps.length - 1)
+    })
   }
 
   render() {
@@ -122,26 +133,11 @@ class App extends Component {
             <div class="block">
               <div className="Final Grades Determination List">
 
-                <FinalGradesDetermination />
-
-                <div class="block">
-                  <div class="container">
-                    <div class="field is-grouped is-centered">
-
-                      <div class="buttons">
-                        <Buttons
-                          style="button is-success is-light"
-                          text="Add Grading Component"
-                        />
-                        <Buttons
-                          style="button is-danger is-light"
-                          text="Remove Grading Component"
-                        />
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
+                <DisplayGD displayGD={this.state.gradeComps} />
+                <ChangeGradeDetermination
+                  addNewGD={ this.addNewGD }
+                  removeGD={ this.removeGD }
+                />
 
               </div>
             </div>
