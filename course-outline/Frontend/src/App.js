@@ -40,9 +40,11 @@ class App extends Component {
   }
 
   removeLO = () => {
-    this.setState({
-      learningOuts: this.state.learningOuts.splice(0, this.state.learningOuts.length - 1)
-    });
+    if(this.state.learningOuts.length > 1){
+      this.setState({
+        learningOuts: this.state.learningOuts.splice(0, this.state.learningOuts.length - 1)
+      });
+    }
   }
 
   addNewGD = () => {
@@ -53,9 +55,11 @@ class App extends Component {
   }
 
   removeGD = () => {
-    this.setState({
-      gradeComps: this.state.gradeComps.splice(0, this.state.gradeComps.length - 1)
-    })
+    if(this.state.gradeComps.length > 1){
+      this.setState({
+        gradeComps: this.state.gradeComps.splice(0, this.state.gradeComps.length - 1)
+      });
+    }
   }
 
   render() {
@@ -132,7 +136,7 @@ class App extends Component {
                 <div class="container">
 
                   <div class="block">
-                    <h1 align="left">This course will consist of the following learning components</h1>
+                    <h1 align="left">This course will consist of the following learning components:</h1>
                   </div>
                   <DisplayLO displayLO={this.state.learningOuts} />
                   <ChangeLearningOutcome
@@ -159,7 +163,7 @@ class App extends Component {
                 <div class="container">
 
                   <div class="block">
-                    <h1 align="left">The final grade in this course will be based on the following components</h1>
+                    <h1 align="left">The final grade in this course will be based on the following components:</h1>
                   </div>
                   <DisplayGD displayGD={this.state.gradeComps} />
                   <ChangeGradeDetermination
